@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: learn-with-nipun
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromSecret: mongodb_uri
+      - key: NEXTAUTH_SECRET
+        fromSecret: nextauth_secret
+      - key: GOOGLE_CLIENT_ID
+        fromSecret: google_client_id
